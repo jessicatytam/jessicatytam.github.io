@@ -8,6 +8,10 @@ navbar:
   right:
     - icon: icon-twitter social-button color
       href: https://twitter.com/tomatojtam
+    - icon: icon-github social-button color
+      href: https://github.com/jessicatytam
+    - icon: icon-linkedin social-button color
+      href: https://www.linkedin.com/in/jessica-tam/
 output: 
   html_document:
     code_download: true
