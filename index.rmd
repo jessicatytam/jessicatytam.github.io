@@ -7,7 +7,7 @@
 - Supervisors: Shinichi Nakagawa, Malgorzata (Losia) Lagisz
 - Grade: 90 WAM
 
-This short study aimed to answer the question of whether there are any biases in the research on Australasian marsupials, and whether the amount and proportion of conservation-related studies match up with that of the endangered species. I explored time trends of the frequency of publications in different research areas. To find out if research efforts are being put into more ‘charismatic’ marsupial species, bibliometric analysis was performed for the comparison between the taxa in this study.
+This short study aimed to answer the question of whether there are any biases in the research on Australasian marsupials, and whether the amount and proportion of conservation-related studies match up with that of the endangered species. I explored time trends of the frequency of publications in different research areas. To find out if research efforts are being put into more ‘charismatic’ marsupial species, bibliometric analysis was performed for the comparison between the taxa in this study. The code and supplementary material are available on the [Open Science Framework](https://osf.io/f569v/).
 
 ## Results
 
@@ -15,7 +15,7 @@ Assessing the data on research output and proportions of endangered species in t
 
 <br />
   
-<img align = "center" src = "https://user-images.githubusercontent.com/51732676/109382708-4fdcd700-7936-11eb-9d14-9092b6528040.png" />
+<img src = "https://user-images.githubusercontent.com/51732676/109382708-4fdcd700-7936-11eb-9d14-9092b6528040.png" />
 
 **FIGURE 1.** The number and proportion of Australasian marsupial species in each IUCN Red List category. Species categorised as ‘least concerned’ are in green, ‘near threatened’ in blue, ‘vulnerable’ in yellow, ‘endangered’ in orange and ‘critically endangered’ in pink.
 
@@ -63,19 +63,80 @@ CombineSp
 
 The code here will generate the following dataframe:
 
-genus_species | species | genus | publications | citations | journals | articles | reviews
---- | --- | --- | --- | --- | --- | --- | ---
-Bettongia_penicillata | penicillata | Bettongia | 113 | 1903 | 55 | 110 | 3
-Setonix_brachyurus | brachyurus | Setonix | 242 | 3427 | 107 | 237 | 5
-Ornithorhynchus_anatinus | anatinus | Ornithorhynchus | 321 | 6365 | 153 | 308 | 13
-Phascolarctos_cinereus | cinereus | Phascolarctos | 773 | 14291 | 227 | 744 | 29
+genus_species | species | genus | publications | citations | journals
+--- | --- | --- | --- | --- | --- 
+Bettongia_penicillata | penicillata | Bettongia | 113 | 1903 | 55
+Setonix_brachyurus | brachyurus | Setonix | 242 | 3427 | 107
+Ornithorhynchus_anatinus | anatinus | Ornithorhynchus | 321 | 6365 | 153
+Phascolarctos_cinereus | cinereus | Phascolarctos | 773 | 14291 | 227
 
-years_publishing | h | m | i10 | h5
---- | --- | --- | --- | --- 
-26 | 0.591 | 54 | 7 | 44
-29 | 0.433 | 121 | 3 | 67 
-41 | 0.603 | 177 | 7 | 68
-53 | 0.379 | 427 | 13 | 140
+articles | reviews | years_publishing | h | m | i10 | h5
+--- | --- | --- | --- | --- | --- | ---
+110 | 3 | 44 |26 | 0.591 | 54 | 7
+237 | 5 | 67 |29 | 0.433 | 121 | 3
+308 | 13 | 68 |41 | 0.603 | 177 | 7
+744 | 29 | 140 |53 | 0.379 | 427 | 13
+
+## Example plots
+
+```{r, eval=FALSE}
+ggplot(CombineSp, aes(x = species,
+                      y = h)) +
+  geom_point(size = 4,
+             colour = "#6fc6f8") +
+  labs(x = "Species",
+       y = "h-index") +
+  scale_x_discrete(labels = c("Platypus", "Quokka", "Koala", "Woylie")) +
+  ylim(25, 55) +
+  theme(axis.title = element_text(size = 12,
+                                  colour = "black"),
+        axis.text = element_text(size = 10,
+                                 colour = "black"),
+        axis.line.x = element_line(colour = "grey50"),
+        plot.background = element_rect(fill = "white"),
+        panel.background = element_rect(fill = "white"),
+        panel.grid.major.y = element_line(colour = "grey80"),
+        panel.grid.minor.y = element_line(colour = "grey80",
+                                          linetype = "longdash"),
+        panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank(),
+        legend.position = "none")
+```
+
+<br />
+
+<img src = "plots/specieshindex1.png" />
+
+**FIGURE 4.** The *h*-index of the Woylie, Quokka, Platypus, and Koala.
+
+```{r, eval=FALSE}
+ggplot(CombineSp, aes(x = species,
+                      y = citations)) +
+  geom_point(size = 4,
+             colour = "#f976bb") +
+  labs(x = "Species",
+       y = "Total citations") +
+  scale_x_discrete(labels = c("Platypus", "Quokka", "Koala", "Woylie")) + 
+  theme(axis.title = element_text(size = 12,
+                                  colour = "black"),
+        axis.text = element_text(size = 10,
+                                 colour = "black"),
+        axis.line.x = element_line(colour = "grey50"),
+        plot.background = element_rect(fill = "white"),
+        panel.background = element_rect(fill = "white"),
+        panel.grid.major.y = element_line(colour = "grey80"),
+        panel.grid.minor.y = element_line(colour = "grey80",
+                                          linetype = "longdash"),
+        panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank(),
+        legend.position = "none")
+```
+
+<br />
+
+<img src = "plots/specieshindex2.png" />
+
+**FIGURE 5.** The *m*-index of the Woylie, Quokka, Platypus, and Koala.
 
 <br />
 

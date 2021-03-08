@@ -491,12 +491,12 @@ div.tocify {
 <li>Supervisors: Shinichi Nakagawa, Malgorzata (Losia) Lagisz</li>
 <li>Grade: 90 WAM</li>
 </ul>
-<p>This short study aimed to answer the question of whether there are any biases in the research on Australasian marsupials, and whether the amount and proportion of conservation-related studies match up with that of the endangered species. I explored time trends of the frequency of publications in different research areas. To find out if research efforts are being put into more ‘charismatic’ marsupial species, bibliometric analysis was performed for the comparison between the taxa in this study.</p>
+<p>This short study aimed to answer the question of whether there are any biases in the research on Australasian marsupials, and whether the amount and proportion of conservation-related studies match up with that of the endangered species. I explored time trends of the frequency of publications in different research areas. To find out if research efforts are being put into more ‘charismatic’ marsupial species, bibliometric analysis was performed for the comparison between the taxa in this study. The code and supplementary material are available on the <a href="https://osf.io/f569v/">Open Science Framework</a>.</p>
 <div id="results" class="section level2">
 <h2>Results</h2>
 <p>Assessing the data on research output and proportions of endangered species in the four taxa, not much bias was found. Although Diprotodontia consisted of the most iconic Australian marsupials, it is also the largest order with the highest number and proportion of endangered species (Figure 1). However, most of the endangered or critically endangered species in this order are currently not very well-know and well-studied. Hence, although there were no biases between the taxa (Figure 2), species-level bias is rather prominent (Figure 3).</p>
 <p><br /></p>
-<p><img align = "center" src = "https://user-images.githubusercontent.com/51732676/109382708-4fdcd700-7936-11eb-9d14-9092b6528040.png" /></p>
+<p><img src = "https://user-images.githubusercontent.com/51732676/109382708-4fdcd700-7936-11eb-9d14-9092b6528040.png" /></p>
 <p><strong>FIGURE 1.</strong> The number and proportion of Australasian marsupial species in each IUCN Red List category. Species categorised as ‘least concerned’ are in green, ‘near threatened’ in blue, ‘vulnerable’ in yellow, ‘endangered’ in orange and ‘critically endangered’ in pink.</p>
 <p><br /></p>
 <p><img src = "https://user-images.githubusercontent.com/51732676/109382769-c548a780-7936-11eb-99da-82504b55fc7d.png" /></p>
@@ -541,8 +541,6 @@ div.tocify {
 <th>publications</th>
 <th>citations</th>
 <th>journals</th>
-<th>articles</th>
-<th>reviews</th>
 </tr>
 </thead>
 <tbody>
@@ -553,8 +551,6 @@ div.tocify {
 <td>113</td>
 <td>1903</td>
 <td>55</td>
-<td>110</td>
-<td>3</td>
 </tr>
 <tr class="even">
 <td>Setonix_brachyurus</td>
@@ -563,8 +559,6 @@ div.tocify {
 <td>242</td>
 <td>3427</td>
 <td>107</td>
-<td>237</td>
-<td>5</td>
 </tr>
 <tr class="odd">
 <td>Ornithorhynchus_anatinus</td>
@@ -573,8 +567,6 @@ div.tocify {
 <td>321</td>
 <td>6365</td>
 <td>153</td>
-<td>308</td>
-<td>13</td>
 </tr>
 <tr class="even">
 <td>Phascolarctos_cinereus</td>
@@ -583,14 +575,14 @@ div.tocify {
 <td>773</td>
 <td>14291</td>
 <td>227</td>
-<td>744</td>
-<td>29</td>
 </tr>
 </tbody>
 </table>
 <table>
 <thead>
 <tr class="header">
+<th>articles</th>
+<th>reviews</th>
 <th>years_publishing</th>
 <th>h</th>
 <th>m</th>
@@ -600,43 +592,101 @@ div.tocify {
 </thead>
 <tbody>
 <tr class="odd">
+<td>110</td>
+<td>3</td>
+<td>44</td>
 <td>26</td>
 <td>0.591</td>
 <td>54</td>
 <td>7</td>
-<td>44</td>
 </tr>
 <tr class="even">
+<td>237</td>
+<td>5</td>
+<td>67</td>
 <td>29</td>
 <td>0.433</td>
 <td>121</td>
 <td>3</td>
-<td>67</td>
 </tr>
 <tr class="odd">
+<td>308</td>
+<td>13</td>
+<td>68</td>
 <td>41</td>
 <td>0.603</td>
 <td>177</td>
 <td>7</td>
-<td>68</td>
 </tr>
 <tr class="even">
+<td>744</td>
+<td>29</td>
+<td>140</td>
 <td>53</td>
 <td>0.379</td>
 <td>427</td>
 <td>13</td>
-<td>140</td>
 </tr>
 </tbody>
 </table>
+<div id="example-plots" class="section level2">
+<h2>Example plots</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(CombineSp, <span class="fu">aes</span>(<span class="at">x =</span> species,</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                      <span class="at">y =</span> h)) <span class="sc">+</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">colour =</span> <span class="st">&quot;#6fc6f8&quot;</span>) <span class="sc">+</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Species&quot;</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;h-index&quot;</span>) <span class="sc">+</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Platypus&quot;</span>, <span class="st">&quot;Quokka&quot;</span>, <span class="st">&quot;Koala&quot;</span>, <span class="st">&quot;Woylie&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">25</span>, <span class="dv">55</span>) <span class="sc">+</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>,</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>),</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>,</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>),</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.line.x =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">&quot;grey50&quot;</span>),</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">&quot;white&quot;</span>),</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">&quot;white&quot;</span>),</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.major.y =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">&quot;grey80&quot;</span>),</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.minor.y =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">&quot;grey80&quot;</span>,</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">linetype =</span> <span class="st">&quot;longdash&quot;</span>),</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.minor.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>)</span></code></pre></div>
 <p><br /></p>
+<p><img src = "plots/specieshindex1.png" /></p>
+<p><strong>FIGURE 4.</strong> The <em>h</em>-index of the Woylie, Quokka, Platypus, and Koala.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(CombineSp, <span class="fu">aes</span>(<span class="at">x =</span> species,</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                      <span class="at">y =</span> citations)) <span class="sc">+</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">colour =</span> <span class="st">&quot;#f976bb&quot;</span>) <span class="sc">+</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Species&quot;</span>,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Total citations&quot;</span>) <span class="sc">+</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Platypus&quot;</span>, <span class="st">&quot;Quokka&quot;</span>, <span class="st">&quot;Koala&quot;</span>, <span class="st">&quot;Woylie&quot;</span>)) <span class="sc">+</span> </span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>,</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>),</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>,</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>),</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.line.x =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">&quot;grey50&quot;</span>),</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">&quot;white&quot;</span>),</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">&quot;white&quot;</span>),</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.major.y =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">&quot;grey80&quot;</span>),</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.minor.y =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">&quot;grey80&quot;</span>,</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">linetype =</span> <span class="st">&quot;longdash&quot;</span>),</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.minor.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>)</span></code></pre></div>
+<p><br /></p>
+<p><img src = "plots/specieshindex2.png" /></p>
+<p><strong>FIGURE 5.</strong> The <em>m</em>-index of the Woylie, Quokka, Platypus, and Koala.</p>
+<p><br /></p>
+</div>
 </div>
 <div id="biases-in-research-and-public-interests-in-mammalian-publications" class="section level1">
 <h1>Biases in research and public interests in mammalian publications</h1>
 <p>coming in August…</p>
 </div>
 
-<div id="rmd-source-code">PGJyIC8+DQoNCiMgS29hbGEgdi4gV295bGllOiByZXNlYXJjaCBiaWFzIGluIEF1c3RyYWxhc2lhbiBtYXJzdXBpYWwgc3BlY2llcw0KDQotIER1cmF0aW9uOiBKdW4gLSBBdWcgMjAxOQ0KLSBUb29scyB1c2VkOiBSICh0aWR5dmVyc2UsIGJpYmxpb21ldHJpeCkNCi0gU3VwZXJ2aXNvcnM6IFNoaW5pY2hpIE5ha2FnYXdhLCBNYWxnb3J6YXRhIChMb3NpYSkgTGFnaXN6DQotIEdyYWRlOiA5MCBXQU0NCg0KVGhpcyBzaG9ydCBzdHVkeSBhaW1lZCB0byBhbnN3ZXIgdGhlIHF1ZXN0aW9uIG9mIHdoZXRoZXIgdGhlcmUgYXJlIGFueSBiaWFzZXMgaW4gdGhlIHJlc2VhcmNoIG9uIEF1c3RyYWxhc2lhbiBtYXJzdXBpYWxzLCBhbmQgd2hldGhlciB0aGUgYW1vdW50IGFuZCBwcm9wb3J0aW9uIG9mIGNvbnNlcnZhdGlvbi1yZWxhdGVkIHN0dWRpZXMgbWF0Y2ggdXAgd2l0aCB0aGF0IG9mIHRoZSBlbmRhbmdlcmVkIHNwZWNpZXMuIEkgZXhwbG9yZWQgdGltZSB0cmVuZHMgb2YgdGhlIGZyZXF1ZW5jeSBvZiBwdWJsaWNhdGlvbnMgaW4gZGlmZmVyZW50IHJlc2VhcmNoIGFyZWFzLiBUbyBmaW5kIG91dCBpZiByZXNlYXJjaCBlZmZvcnRzIGFyZSBiZWluZyBwdXQgaW50byBtb3JlIOKAmGNoYXJpc21hdGlj4oCZIG1hcnN1cGlhbCBzcGVjaWVzLCBiaWJsaW9tZXRyaWMgYW5hbHlzaXMgd2FzIHBlcmZvcm1lZCBmb3IgdGhlIGNvbXBhcmlzb24gYmV0d2VlbiB0aGUgdGF4YSBpbiB0aGlzIHN0dWR5Lg0KDQojIyBSZXN1bHRzDQoNCkFzc2Vzc2luZyB0aGUgZGF0YSBvbiByZXNlYXJjaCBvdXRwdXQgYW5kIHByb3BvcnRpb25zIG9mIGVuZGFuZ2VyZWQgc3BlY2llcyBpbiB0aGUgZm91ciB0YXhhLCBub3QgbXVjaCBiaWFzIHdhcyBmb3VuZC4gQWx0aG91Z2ggRGlwcm90b2RvbnRpYSBjb25zaXN0ZWQgb2YgdGhlIG1vc3QgaWNvbmljIEF1c3RyYWxpYW4gbWFyc3VwaWFscywgaXQgaXMgYWxzbyB0aGUgbGFyZ2VzdCBvcmRlciB3aXRoIHRoZSBoaWdoZXN0IG51bWJlciBhbmQgcHJvcG9ydGlvbiBvZiBlbmRhbmdlcmVkIHNwZWNpZXMgKEZpZ3VyZSAxKS4gSG93ZXZlciwgbW9zdCBvZiB0aGUgZW5kYW5nZXJlZCBvciBjcml0aWNhbGx5IGVuZGFuZ2VyZWQgc3BlY2llcyBpbiB0aGlzIG9yZGVyIGFyZSBjdXJyZW50bHkgbm90IHZlcnkgd2VsbC1rbm93IGFuZCB3ZWxsLXN0dWRpZWQuIEhlbmNlLCBhbHRob3VnaCB0aGVyZSB3ZXJlIG5vIGJpYXNlcyBiZXR3ZWVuIHRoZSB0YXhhIChGaWd1cmUgMiksIHNwZWNpZXMtbGV2ZWwgYmlhcyBpcyByYXRoZXIgcHJvbWluZW50IChGaWd1cmUgMykuDQoNCjxiciAvPg0KICANCjxpbWcgYWxpZ24gPSAiY2VudGVyIiBzcmMgPSAiaHR0cHM6Ly91c2VyLWltYWdlcy5naXRodWJ1c2VyY29udGVudC5jb20vNTE3MzI2NzYvMTA5MzgyNzA4LTRmZGNkNzAwLTc5MzYtMTFlYi05ZDE0LTkwOTJiNjUyODA0MC5wbmciIC8+DQoNCioqRklHVVJFIDEuKiogVGhlIG51bWJlciBhbmQgcHJvcG9ydGlvbiBvZiBBdXN0cmFsYXNpYW4gbWFyc3VwaWFsIHNwZWNpZXMgaW4gZWFjaCBJVUNOIFJlZCBMaXN0IGNhdGVnb3J5LiBTcGVjaWVzIGNhdGVnb3Jpc2VkIGFzIOKAmGxlYXN0IGNvbmNlcm5lZOKAmSBhcmUgaW4gZ3JlZW4sIOKAmG5lYXIgdGhyZWF0ZW5lZOKAmSBpbiBibHVlLCDigJh2dWxuZXJhYmxl4oCZIGluIHllbGxvdywg4oCYZW5kYW5nZXJlZOKAmSBpbiBvcmFuZ2UgYW5kIOKAmGNyaXRpY2FsbHkgZW5kYW5nZXJlZOKAmSBpbiBwaW5rLg0KDQo8YnIgLz4NCg0KPGltZyBzcmMgPSAiaHR0cHM6Ly91c2VyLWltYWdlcy5naXRodWJ1c2VyY29udGVudC5jb20vNTE3MzI2NzYvMTA5MzgyNzY5LWM1NDhhNzgwLTc5MzYtMTFlYi05OWRhLTgyNTA0YjU1ZmM3ZC5wbmciIC8+DQoNCioqRklHVVJFIDIuKiogVGhlIGluY3JlYXNlIGluIHRoZSBudW1iZXIgb2YgYXJ0aWNsZXMgcmVsYXRlZCB0byBEaXByb3RvZG9udGlhLCBEYXN5dXJvbW9ycGhpYSwgUGVyYW1lbGVtb3JwaGlhLCBhbmQgTm90b3J5Y3RlbW9ycGhpYSBmcm9tIDE5ODAgdG8gMjAxOS4gU2VsZWN0ZWQgaW5kZXhlZCBrZXl3b3JkcyB3ZXJlIHVzZWQgZm9yIHRoZSBhbmFseXNlcyBvZiBwdWJsaXNoZWQgYXJ0aWNsZXMuDQoNCjxiciAvPg0KDQo8aW1nIHNyYyA9ICJodHRwczovL3VzZXItaW1hZ2VzLmdpdGh1YnVzZXJjb250ZW50LmNvbS81MTczMjY3Ni8xMDkzODM5NTktZjFiM2YyMDAtNzkzZC0xMWViLTkzZmYtOGFiNWMwYjQ2Y2U3LnBuZyIgLz4NCg0KKipGSUdVUkUgMy4qKiBUaGUgaW5jcmVhc2UgaW4gdGhlIG51bWJlciBvZiBhcnRpY2xlcyByZWxhdGVkIHRvIGtvYWxhLXJlbGF0ZWQgcmVzZWFyY2ggYW5kIHdveWxpZS1yZWxhdGVkIHJlc2VhcmNoIGZyb20gMTk4MCB0byAyMDE5LiBTZWxlY3RlZCBpbmRleGVkIGtleXdvcmRzIHdlcmUgdXNlZCBmb3IgdGhlIGFuYWx5c2VzIG9mIHB1Ymxpc2hlZCBhcnRpY2xlcy4NCg0KPGJyIC8+DQoNCiMgUiBwYWNrYWdlOiBbc3BlY2llc2hpbmRleF0oaHR0cHM6Ly9naXRodWIuY29tL2plc3NpY2F0eXRhbS9zcGVjaWVzaGluZGV4KQ0KDQpzcGVjaWVzaGluZGV4IGlzIGEgcGFja2FnZSB0aGF0IGFpbXMgdG8gZ2F1Z2Ugc2NpZW50aWZpYyBpbmZsdWVuY2Ugb2YgZGlmZmVyZW50IHNwZWNpZXMgbWFpbmx5IHVzaW5nIHRoZSBoLWluZGV4LiBUaGUgKmgqLWluZGV4IGlzIGFuIGltcGFjdCBmYWN0b3IgdHJhZGl0aW9uYWxseSB1c2VkIGZvciBhY2FkZW1pY3MuIEl0IGlzIG5vdyBhdmFpbGFibGUgdG8gcmFuayBhbmQgY29tcGFyZSBpbmRpdmlkdWFsIHNwZWNpZXMuDQoNCi0JRHVyYXRpb246IEp1biAtIEF1ZyAyMDIwICh3aXRoIG9uLWdvaW5nIHVwZGF0ZXMpDQotCVRvb2xzIHVzZWQ6IFIgKGxvb3BzLCBjb25kaXRpb25hbHMsIHRpZHl2ZXJzZSwgZGV2dG9vbHMpLCBBZG9iZSBQaG90b3Nob3ANCi0JU3VwZXJ2aXNvcnM6IFNoaW5pY2hpIE5ha2FnYXdhLCBNYWxnb3J6YXRhIChMb3NpYSkgTGFnaXN6LCBXaWxsIENvcm53ZWxsDQotIEdyYWRlOiA5MiBXQU0NCg0KSGVyZSBpcyBhIHF1aWNrIGV4YW1wbGUgb2YgaG93IHRoZSBnZXQgdGhlIGNpdGF0aW9uIHJlY29yZHMgYW5kIGNhbGN1bGF0ZSB0aGUgaW5kaWNlcy4NCg0KYGBge3IsIGV2YWw9RkFMU0V9DQpsaWJyYXJ5KHNwZWNpZXNoaW5kZXgpDQojIEV4dHJhY3QgY2l0YXRpb24gZGF0YQ0KV295bGllIDwtIEZldGNoU3BUQUsoIkJldHRvbmdpYSIsICJwZW5pY2lsbGF0YSIsIEFQSWtleSA9IEFQSSkNClF1b2trYSA8LSBGZXRjaFNwVEFLKCJTZXRvbml4IiwgImJyYWNoeXVydXMiLCBBUElrZXkgPSBBUEkpDQpQbGF0eXB1cyA8LSBGZXRjaFNwVEFLKCJPcm5pdGhvcmh5bmNodXMiLCAiYW5hdGludXMiLCBBUElrZXkgPSBBUEkpDQpLb2FsYSA8LSBGZXRjaFNwVEFLKCJQaGFzY29sYXJjdG9zIiwgImNpbmVyZXVzIiwgQVBJa2V5ID0gQVBJKQ0KIyBDYWxjdWxhdGUgaW5kaWNlcw0KVyA8LSBBbGxpbmRpY2VzKFdveWxpZSwgZ2VudXMgPSAiQmV0dG9uZ2lhIiwgc3BlY2llcyA9ICJwZW5pY2lsbGF0YSIpDQpRIDwtIEFsbGluZGljZXMoUXVva2thLCBnZW51cyA9ICJTZXRvbml4Iiwgc3BlY2llcyA9ICJicmFjaHl1cnVzIikNClAgPC0gQWxsaW5kaWNlcyhQbGF0eXB1cywgZ2VudXMgPSAiT3JuaXRob3JoeW5jaHVzIiwgc3BlY2llcyA9ICJhbmF0aW51cyIpDQpLIDwtIEFsbGluZGljZXMoS29hbGEsIGdlbnVzID0gIlBoYXNjb2xhcmN0b3MiLCBzcGVjaWVzID0gImNpbmVyZXVzIikNCkNvbWJpbmVTcCA8LSByYmluZChXLCBRLCBQLCBLKSAjY29tYmluaW5nIHRoZSBjaXRhdGlvbiByZWNvcmRzDQpDb21iaW5lU3ANCmBgYA0KPGJyIC8+DQoNClRoZSBjb2RlIGhlcmUgd2lsbCBnZW5lcmF0ZSB0aGUgZm9sbG93aW5nIGRhdGFmcmFtZToNCg0KZ2VudXNfc3BlY2llcyB8IHNwZWNpZXMgfCBnZW51cyB8IHB1YmxpY2F0aW9ucyB8IGNpdGF0aW9ucyB8IGpvdXJuYWxzIHwgYXJ0aWNsZXMgfCByZXZpZXdzDQotLS0gfCAtLS0gfCAtLS0gfCAtLS0gfCAtLS0gfCAtLS0gfCAtLS0gfCAtLS0NCkJldHRvbmdpYV9wZW5pY2lsbGF0YSB8IHBlbmljaWxsYXRhIHwgQmV0dG9uZ2lhIHwgMTEzIHwgMTkwMyB8IDU1IHwgMTEwIHwgMw0KU2V0b25peF9icmFjaHl1cnVzIHwgYnJhY2h5dXJ1cyB8IFNldG9uaXggfCAyNDIgfCAzNDI3IHwgMTA3IHwgMjM3IHwgNQ0KT3JuaXRob3JoeW5jaHVzX2FuYXRpbnVzIHwgYW5hdGludXMgfCBPcm5pdGhvcmh5bmNodXMgfCAzMjEgfCA2MzY1IHwgMTUzIHwgMzA4IHwgMTMNClBoYXNjb2xhcmN0b3NfY2luZXJldXMgfCBjaW5lcmV1cyB8IFBoYXNjb2xhcmN0b3MgfCA3NzMgfCAxNDI5MSB8IDIyNyB8IDc0NCB8IDI5DQoNCnllYXJzX3B1Ymxpc2hpbmcgfCBoIHwgbSB8IGkxMCB8IGg1DQotLS0gfCAtLS0gfCAtLS0gfCAtLS0gfCAtLS0gDQoyNiB8IDAuNTkxIHwgNTQgfCA3IHwgNDQNCjI5IHwgMC40MzMgfCAxMjEgfCAzIHwgNjcgDQo0MSB8IDAuNjAzIHwgMTc3IHwgNyB8IDY4DQo1MyB8IDAuMzc5IHwgNDI3IHwgMTMgfCAxNDANCg0KPGJyIC8+DQoNCiMgQmlhc2VzIGluIHJlc2VhcmNoIGFuZCBwdWJsaWMgaW50ZXJlc3RzIGluIG1hbW1hbGlhbiBwdWJsaWNhdGlvbnMNCg0KY29taW5nIGluIEF1Z3VzdC4uLg==</div>
+<div id="rmd-source-code">PGJyIC8+DQoNCiMgS29hbGEgdi4gV295bGllOiByZXNlYXJjaCBiaWFzIGluIEF1c3RyYWxhc2lhbiBtYXJzdXBpYWwgc3BlY2llcw0KDQotIER1cmF0aW9uOiBKdW4gLSBBdWcgMjAxOQ0KLSBUb29scyB1c2VkOiBSICh0aWR5dmVyc2UsIGJpYmxpb21ldHJpeCkNCi0gU3VwZXJ2aXNvcnM6IFNoaW5pY2hpIE5ha2FnYXdhLCBNYWxnb3J6YXRhIChMb3NpYSkgTGFnaXN6DQotIEdyYWRlOiA5MCBXQU0NCg0KVGhpcyBzaG9ydCBzdHVkeSBhaW1lZCB0byBhbnN3ZXIgdGhlIHF1ZXN0aW9uIG9mIHdoZXRoZXIgdGhlcmUgYXJlIGFueSBiaWFzZXMgaW4gdGhlIHJlc2VhcmNoIG9uIEF1c3RyYWxhc2lhbiBtYXJzdXBpYWxzLCBhbmQgd2hldGhlciB0aGUgYW1vdW50IGFuZCBwcm9wb3J0aW9uIG9mIGNvbnNlcnZhdGlvbi1yZWxhdGVkIHN0dWRpZXMgbWF0Y2ggdXAgd2l0aCB0aGF0IG9mIHRoZSBlbmRhbmdlcmVkIHNwZWNpZXMuIEkgZXhwbG9yZWQgdGltZSB0cmVuZHMgb2YgdGhlIGZyZXF1ZW5jeSBvZiBwdWJsaWNhdGlvbnMgaW4gZGlmZmVyZW50IHJlc2VhcmNoIGFyZWFzLiBUbyBmaW5kIG91dCBpZiByZXNlYXJjaCBlZmZvcnRzIGFyZSBiZWluZyBwdXQgaW50byBtb3JlIOKAmGNoYXJpc21hdGlj4oCZIG1hcnN1cGlhbCBzcGVjaWVzLCBiaWJsaW9tZXRyaWMgYW5hbHlzaXMgd2FzIHBlcmZvcm1lZCBmb3IgdGhlIGNvbXBhcmlzb24gYmV0d2VlbiB0aGUgdGF4YSBpbiB0aGlzIHN0dWR5LiBUaGUgY29kZSBhbmQgc3VwcGxlbWVudGFyeSBtYXRlcmlhbCBhcmUgYXZhaWxhYmxlIG9uIHRoZSBbT3BlbiBTY2llbmNlIEZyYW1ld29ya10oaHR0cHM6Ly9vc2YuaW8vZjU2OXYvKS4NCg0KIyMgUmVzdWx0cw0KDQpBc3Nlc3NpbmcgdGhlIGRhdGEgb24gcmVzZWFyY2ggb3V0cHV0IGFuZCBwcm9wb3J0aW9ucyBvZiBlbmRhbmdlcmVkIHNwZWNpZXMgaW4gdGhlIGZvdXIgdGF4YSwgbm90IG11Y2ggYmlhcyB3YXMgZm91bmQuIEFsdGhvdWdoIERpcHJvdG9kb250aWEgY29uc2lzdGVkIG9mIHRoZSBtb3N0IGljb25pYyBBdXN0cmFsaWFuIG1hcnN1cGlhbHMsIGl0IGlzIGFsc28gdGhlIGxhcmdlc3Qgb3JkZXIgd2l0aCB0aGUgaGlnaGVzdCBudW1iZXIgYW5kIHByb3BvcnRpb24gb2YgZW5kYW5nZXJlZCBzcGVjaWVzIChGaWd1cmUgMSkuIEhvd2V2ZXIsIG1vc3Qgb2YgdGhlIGVuZGFuZ2VyZWQgb3IgY3JpdGljYWxseSBlbmRhbmdlcmVkIHNwZWNpZXMgaW4gdGhpcyBvcmRlciBhcmUgY3VycmVudGx5IG5vdCB2ZXJ5IHdlbGwta25vdyBhbmQgd2VsbC1zdHVkaWVkLiBIZW5jZSwgYWx0aG91Z2ggdGhlcmUgd2VyZSBubyBiaWFzZXMgYmV0d2VlbiB0aGUgdGF4YSAoRmlndXJlIDIpLCBzcGVjaWVzLWxldmVsIGJpYXMgaXMgcmF0aGVyIHByb21pbmVudCAoRmlndXJlIDMpLg0KDQo8YnIgLz4NCiAgDQo8aW1nIHNyYyA9ICJodHRwczovL3VzZXItaW1hZ2VzLmdpdGh1YnVzZXJjb250ZW50LmNvbS81MTczMjY3Ni8xMDkzODI3MDgtNGZkY2Q3MDAtNzkzNi0xMWViLTlkMTQtOTA5MmI2NTI4MDQwLnBuZyIgLz4NCg0KKipGSUdVUkUgMS4qKiBUaGUgbnVtYmVyIGFuZCBwcm9wb3J0aW9uIG9mIEF1c3RyYWxhc2lhbiBtYXJzdXBpYWwgc3BlY2llcyBpbiBlYWNoIElVQ04gUmVkIExpc3QgY2F0ZWdvcnkuIFNwZWNpZXMgY2F0ZWdvcmlzZWQgYXMg4oCYbGVhc3QgY29uY2VybmVk4oCZIGFyZSBpbiBncmVlbiwg4oCYbmVhciB0aHJlYXRlbmVk4oCZIGluIGJsdWUsIOKAmHZ1bG5lcmFibGXigJkgaW4geWVsbG93LCDigJhlbmRhbmdlcmVk4oCZIGluIG9yYW5nZSBhbmQg4oCYY3JpdGljYWxseSBlbmRhbmdlcmVk4oCZIGluIHBpbmsuDQoNCjxiciAvPg0KDQo8aW1nIHNyYyA9ICJodHRwczovL3VzZXItaW1hZ2VzLmdpdGh1YnVzZXJjb250ZW50LmNvbS81MTczMjY3Ni8xMDkzODI3NjktYzU0OGE3ODAtNzkzNi0xMWViLTk5ZGEtODI1MDRiNTVmYzdkLnBuZyIgLz4NCg0KKipGSUdVUkUgMi4qKiBUaGUgaW5jcmVhc2UgaW4gdGhlIG51bWJlciBvZiBhcnRpY2xlcyByZWxhdGVkIHRvIERpcHJvdG9kb250aWEsIERhc3l1cm9tb3JwaGlhLCBQZXJhbWVsZW1vcnBoaWEsIGFuZCBOb3RvcnljdGVtb3JwaGlhIGZyb20gMTk4MCB0byAyMDE5LiBTZWxlY3RlZCBpbmRleGVkIGtleXdvcmRzIHdlcmUgdXNlZCBmb3IgdGhlIGFuYWx5c2VzIG9mIHB1Ymxpc2hlZCBhcnRpY2xlcy4NCg0KPGJyIC8+DQoNCjxpbWcgc3JjID0gImh0dHBzOi8vdXNlci1pbWFnZXMuZ2l0aHVidXNlcmNvbnRlbnQuY29tLzUxNzMyNjc2LzEwOTM4Mzk1OS1mMWIzZjIwMC03OTNkLTExZWItOTNmZi04YWI1YzBiNDZjZTcucG5nIiAvPg0KDQoqKkZJR1VSRSAzLioqIFRoZSBpbmNyZWFzZSBpbiB0aGUgbnVtYmVyIG9mIGFydGljbGVzIHJlbGF0ZWQgdG8ga29hbGEtcmVsYXRlZCByZXNlYXJjaCBhbmQgd295bGllLXJlbGF0ZWQgcmVzZWFyY2ggZnJvbSAxOTgwIHRvIDIwMTkuIFNlbGVjdGVkIGluZGV4ZWQga2V5d29yZHMgd2VyZSB1c2VkIGZvciB0aGUgYW5hbHlzZXMgb2YgcHVibGlzaGVkIGFydGljbGVzLg0KDQo8YnIgLz4NCg0KIyBSIHBhY2thZ2U6IFtzcGVjaWVzaGluZGV4XShodHRwczovL2dpdGh1Yi5jb20vamVzc2ljYXR5dGFtL3NwZWNpZXNoaW5kZXgpDQoNCnNwZWNpZXNoaW5kZXggaXMgYSBwYWNrYWdlIHRoYXQgYWltcyB0byBnYXVnZSBzY2llbnRpZmljIGluZmx1ZW5jZSBvZiBkaWZmZXJlbnQgc3BlY2llcyBtYWlubHkgdXNpbmcgdGhlIGgtaW5kZXguIFRoZSAqaCotaW5kZXggaXMgYW4gaW1wYWN0IGZhY3RvciB0cmFkaXRpb25hbGx5IHVzZWQgZm9yIGFjYWRlbWljcy4gSXQgaXMgbm93IGF2YWlsYWJsZSB0byByYW5rIGFuZCBjb21wYXJlIGluZGl2aWR1YWwgc3BlY2llcy4NCg0KLQlEdXJhdGlvbjogSnVuIC0gQXVnIDIwMjAgKHdpdGggb24tZ29pbmcgdXBkYXRlcykNCi0JVG9vbHMgdXNlZDogUiAobG9vcHMsIGNvbmRpdGlvbmFscywgdGlkeXZlcnNlLCBkZXZ0b29scyksIEFkb2JlIFBob3Rvc2hvcA0KLQlTdXBlcnZpc29yczogU2hpbmljaGkgTmFrYWdhd2EsIE1hbGdvcnphdGEgKExvc2lhKSBMYWdpc3osIFdpbGwgQ29ybndlbGwNCi0gR3JhZGU6IDkyIFdBTQ0KDQpIZXJlIGlzIGEgcXVpY2sgZXhhbXBsZSBvZiBob3cgdGhlIGdldCB0aGUgY2l0YXRpb24gcmVjb3JkcyBhbmQgY2FsY3VsYXRlIHRoZSBpbmRpY2VzLg0KDQpgYGB7ciwgZXZhbD1GQUxTRX0NCmxpYnJhcnkoc3BlY2llc2hpbmRleCkNCiMgRXh0cmFjdCBjaXRhdGlvbiBkYXRhDQpXb3lsaWUgPC0gRmV0Y2hTcFRBSygiQmV0dG9uZ2lhIiwgInBlbmljaWxsYXRhIiwgQVBJa2V5ID0gQVBJKQ0KUXVva2thIDwtIEZldGNoU3BUQUsoIlNldG9uaXgiLCAiYnJhY2h5dXJ1cyIsIEFQSWtleSA9IEFQSSkNClBsYXR5cHVzIDwtIEZldGNoU3BUQUsoIk9ybml0aG9yaHluY2h1cyIsICJhbmF0aW51cyIsIEFQSWtleSA9IEFQSSkNCktvYWxhIDwtIEZldGNoU3BUQUsoIlBoYXNjb2xhcmN0b3MiLCAiY2luZXJldXMiLCBBUElrZXkgPSBBUEkpDQojIENhbGN1bGF0ZSBpbmRpY2VzDQpXIDwtIEFsbGluZGljZXMoV295bGllLCBnZW51cyA9ICJCZXR0b25naWEiLCBzcGVjaWVzID0gInBlbmljaWxsYXRhIikNClEgPC0gQWxsaW5kaWNlcyhRdW9ra2EsIGdlbnVzID0gIlNldG9uaXgiLCBzcGVjaWVzID0gImJyYWNoeXVydXMiKQ0KUCA8LSBBbGxpbmRpY2VzKFBsYXR5cHVzLCBnZW51cyA9ICJPcm5pdGhvcmh5bmNodXMiLCBzcGVjaWVzID0gImFuYXRpbnVzIikNCksgPC0gQWxsaW5kaWNlcyhLb2FsYSwgZ2VudXMgPSAiUGhhc2NvbGFyY3RvcyIsIHNwZWNpZXMgPSAiY2luZXJldXMiKQ0KQ29tYmluZVNwIDwtIHJiaW5kKFcsIFEsIFAsIEspICNjb21iaW5pbmcgdGhlIGNpdGF0aW9uIHJlY29yZHMNCkNvbWJpbmVTcA0KYGBgDQo8YnIgLz4NCg0KVGhlIGNvZGUgaGVyZSB3aWxsIGdlbmVyYXRlIHRoZSBmb2xsb3dpbmcgZGF0YWZyYW1lOg0KDQpnZW51c19zcGVjaWVzIHwgc3BlY2llcyB8IGdlbnVzIHwgcHVibGljYXRpb25zIHwgY2l0YXRpb25zIHwgam91cm5hbHMNCi0tLSB8IC0tLSB8IC0tLSB8IC0tLSB8IC0tLSB8IC0tLSANCkJldHRvbmdpYV9wZW5pY2lsbGF0YSB8IHBlbmljaWxsYXRhIHwgQmV0dG9uZ2lhIHwgMTEzIHwgMTkwMyB8IDU1DQpTZXRvbml4X2JyYWNoeXVydXMgfCBicmFjaHl1cnVzIHwgU2V0b25peCB8IDI0MiB8IDM0MjcgfCAxMDcNCk9ybml0aG9yaHluY2h1c19hbmF0aW51cyB8IGFuYXRpbnVzIHwgT3JuaXRob3JoeW5jaHVzIHwgMzIxIHwgNjM2NSB8IDE1Mw0KUGhhc2NvbGFyY3Rvc19jaW5lcmV1cyB8IGNpbmVyZXVzIHwgUGhhc2NvbGFyY3RvcyB8IDc3MyB8IDE0MjkxIHwgMjI3DQoNCmFydGljbGVzIHwgcmV2aWV3cyB8IHllYXJzX3B1Ymxpc2hpbmcgfCBoIHwgbSB8IGkxMCB8IGg1DQotLS0gfCAtLS0gfCAtLS0gfCAtLS0gfCAtLS0gfCAtLS0gfCAtLS0NCjExMCB8IDMgfCA0NCB8MjYgfCAwLjU5MSB8IDU0IHwgNw0KMjM3IHwgNSB8IDY3IHwyOSB8IDAuNDMzIHwgMTIxIHwgMw0KMzA4IHwgMTMgfCA2OCB8NDEgfCAwLjYwMyB8IDE3NyB8IDcNCjc0NCB8IDI5IHwgMTQwIHw1MyB8IDAuMzc5IHwgNDI3IHwgMTMNCg0KIyMgRXhhbXBsZSBwbG90cw0KDQpgYGB7ciwgZXZhbD1GQUxTRX0NCmdncGxvdChDb21iaW5lU3AsIGFlcyh4ID0gc3BlY2llcywNCiAgICAgICAgICAgICAgICAgICAgICB5ID0gaCkpICsNCiAgZ2VvbV9wb2ludChzaXplID0gNCwNCiAgICAgICAgICAgICBjb2xvdXIgPSAiIzZmYzZmOCIpICsNCiAgbGFicyh4ID0gIlNwZWNpZXMiLA0KICAgICAgIHkgPSAiaC1pbmRleCIpICsNCiAgc2NhbGVfeF9kaXNjcmV0ZShsYWJlbHMgPSBjKCJQbGF0eXB1cyIsICJRdW9ra2EiLCAiS29hbGEiLCAiV295bGllIikpICsNCiAgeWxpbSgyNSwgNTUpICsNCiAgdGhlbWUoYXhpcy50aXRsZSA9IGVsZW1lbnRfdGV4dChzaXplID0gMTIsDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgY29sb3VyID0gImJsYWNrIiksDQogICAgICAgIGF4aXMudGV4dCA9IGVsZW1lbnRfdGV4dChzaXplID0gMTAsDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBjb2xvdXIgPSAiYmxhY2siKSwNCiAgICAgICAgYXhpcy5saW5lLnggPSBlbGVtZW50X2xpbmUoY29sb3VyID0gImdyZXk1MCIpLA0KICAgICAgICBwbG90LmJhY2tncm91bmQgPSBlbGVtZW50X3JlY3QoZmlsbCA9ICJ3aGl0ZSIpLA0KICAgICAgICBwYW5lbC5iYWNrZ3JvdW5kID0gZWxlbWVudF9yZWN0KGZpbGwgPSAid2hpdGUiKSwNCiAgICAgICAgcGFuZWwuZ3JpZC5tYWpvci55ID0gZWxlbWVudF9saW5lKGNvbG91ciA9ICJncmV5ODAiKSwNCiAgICAgICAgcGFuZWwuZ3JpZC5taW5vci55ID0gZWxlbWVudF9saW5lKGNvbG91ciA9ICJncmV5ODAiLA0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgbGluZXR5cGUgPSAibG9uZ2Rhc2giKSwNCiAgICAgICAgcGFuZWwuZ3JpZC5tYWpvci54ID0gZWxlbWVudF9ibGFuaygpLA0KICAgICAgICBwYW5lbC5ncmlkLm1pbm9yLnggPSBlbGVtZW50X2JsYW5rKCksDQogICAgICAgIGxlZ2VuZC5wb3NpdGlvbiA9ICJub25lIikNCmBgYA0KDQo8YnIgLz4NCg0KPGltZyBzcmMgPSAicGxvdHMvc3BlY2llc2hpbmRleDEucG5nIiAvPg0KDQoqKkZJR1VSRSA0LioqIFRoZSAqaCotaW5kZXggb2YgdGhlIFdveWxpZSwgUXVva2thLCBQbGF0eXB1cywgYW5kIEtvYWxhLg0KDQpgYGB7ciwgZXZhbD1GQUxTRX0NCmdncGxvdChDb21iaW5lU3AsIGFlcyh4ID0gc3BlY2llcywNCiAgICAgICAgICAgICAgICAgICAgICB5ID0gY2l0YXRpb25zKSkgKw0KICBnZW9tX3BvaW50KHNpemUgPSA0LA0KICAgICAgICAgICAgIGNvbG91ciA9ICIjZjk3NmJiIikgKw0KICBsYWJzKHggPSAiU3BlY2llcyIsDQogICAgICAgeSA9ICJUb3RhbCBjaXRhdGlvbnMiKSArDQogIHNjYWxlX3hfZGlzY3JldGUobGFiZWxzID0gYygiUGxhdHlwdXMiLCAiUXVva2thIiwgIktvYWxhIiwgIldveWxpZSIpKSArIA0KICB0aGVtZShheGlzLnRpdGxlID0gZWxlbWVudF90ZXh0KHNpemUgPSAxMiwNCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBjb2xvdXIgPSAiYmxhY2siKSwNCiAgICAgICAgYXhpcy50ZXh0ID0gZWxlbWVudF90ZXh0KHNpemUgPSAxMCwNCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNvbG91ciA9ICJibGFjayIpLA0KICAgICAgICBheGlzLmxpbmUueCA9IGVsZW1lbnRfbGluZShjb2xvdXIgPSAiZ3JleTUwIiksDQogICAgICAgIHBsb3QuYmFja2dyb3VuZCA9IGVsZW1lbnRfcmVjdChmaWxsID0gIndoaXRlIiksDQogICAgICAgIHBhbmVsLmJhY2tncm91bmQgPSBlbGVtZW50X3JlY3QoZmlsbCA9ICJ3aGl0ZSIpLA0KICAgICAgICBwYW5lbC5ncmlkLm1ham9yLnkgPSBlbGVtZW50X2xpbmUoY29sb3VyID0gImdyZXk4MCIpLA0KICAgICAgICBwYW5lbC5ncmlkLm1pbm9yLnkgPSBlbGVtZW50X2xpbmUoY29sb3VyID0gImdyZXk4MCIsDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBsaW5ldHlwZSA9ICJsb25nZGFzaCIpLA0KICAgICAgICBwYW5lbC5ncmlkLm1ham9yLnggPSBlbGVtZW50X2JsYW5rKCksDQogICAgICAgIHBhbmVsLmdyaWQubWlub3IueCA9IGVsZW1lbnRfYmxhbmsoKSwNCiAgICAgICAgbGVnZW5kLnBvc2l0aW9uID0gIm5vbmUiKQ0KYGBgDQoNCjxiciAvPg0KDQo8aW1nIHNyYyA9ICJwbG90cy9zcGVjaWVzaGluZGV4Mi5wbmciIC8+DQoNCioqRklHVVJFIDUuKiogVGhlICptKi1pbmRleCBvZiB0aGUgV295bGllLCBRdW9ra2EsIFBsYXR5cHVzLCBhbmQgS29hbGEuDQoNCjxiciAvPg0KDQojIEJpYXNlcyBpbiByZXNlYXJjaCBhbmQgcHVibGljIGludGVyZXN0cyBpbiBtYW1tYWxpYW4gcHVibGljYXRpb25zDQoNCmNvbWluZyBpbiBBdWd1c3QuLi4=</div>
 
 
 </div>
