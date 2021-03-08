@@ -105,7 +105,7 @@ ggplot(CombineSp, aes(x = species,
 
 <br />
 
-<img src = "plots/specieshindex1.png" />
+<img src = "images/specieshindex1.png" />
 
 **FIGURE 4.** The *h*-index of the Woylie, Quokka, Platypus, and Koala.
 
@@ -134,7 +134,7 @@ ggplot(CombineSp, aes(x = species,
 
 <br />
 
-<img src = "plots/specieshindex2.png" />
+<img src = "images/specieshindex2.png" />
 
 **FIGURE 5.** The *m*-index of the Woylie, Quokka, Platypus, and Koala.
 

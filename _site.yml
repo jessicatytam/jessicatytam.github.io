@@ -1,9 +1,17 @@
+name: "Jessica Tam"
 output_dir: "."
 navbar:
   title: "Jess' Website"
   left:
     - text: "Projects"
       href: index.html
+  right:
+    - icon: fa-twitter fa-lg
+      href: https://twitter.com/tomatojtam
+    - icon: fa-github fa-lg
+      href: http://github.com/jessicatytam
+    - icon: fa-linkedin fa-lg
+      href: https://www.linkedin.com/in/jessica-tam/
 output: 
   html_document:
     code_download: true
