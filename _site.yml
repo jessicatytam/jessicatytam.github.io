@@ -6,12 +6,8 @@ navbar:
     - text: "Projects"
       href: index.html
   right:
-    - icon: fa-twitter fa-lg
+    - icon: icon-twitter social-button color
       href: https://twitter.com/tomatojtam
-    - icon: fa-github fa-lg
-      href: http://github.com/jessicatytam
-    - icon: fa-linkedin fa-lg
-      href: https://www.linkedin.com/in/jessica-tam/
 output: 
   html_document:
     code_download: true
