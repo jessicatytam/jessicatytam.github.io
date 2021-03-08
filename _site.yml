@@ -1,0 +1,16 @@
+output_dir: "."
+navbar:
+  title: "Jess' Website"
+  left:
+    - text: "Projects"
+      href: index.html
+output: 
+  html_document:
+    code_download: true
+    code_folding: show
+    depth: 3
+    number_sections: no
+    theme:  flatly
+    highlight: kate
+    toc: yes
+    toc_float: yes

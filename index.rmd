@@ -1,0 +1,84 @@
+<br />
+
+# Koala v. Woylie: research bias in Australasian marsupial species
+
+- Duration: Jun - Aug 2019
+- Tools used: R (tidyverse, bibliometrix)
+- Supervisors: Shinichi Nakagawa, Malgorzata (Losia) Lagisz
+- Grade: 90 WAM
+
+This short study aimed to answer the question of whether there are any biases in the research on Australasian marsupials, and whether the amount and proportion of conservation-related studies match up with that of the endangered species. I explored time trends of the frequency of publications in different research areas. To find out if research efforts are being put into more ‘charismatic’ marsupial species, bibliometric analysis was performed for the comparison between the taxa in this study.
+
+## Results
+
+Assessing the data on research output and proportions of endangered species in the four taxa, not much bias was found. Although Diprotodontia consisted of the most iconic Australian marsupials, it is also the largest order with the highest number and proportion of endangered species (Figure 1). However, most of the endangered or critically endangered species in this order are currently not very well-know and well-studied. Hence, although there were no biases between the taxa (Figure 2), species-level bias is rather prominent (Figure 3).
+
+<br />
+  
+<img align = "center" src = "https://user-images.githubusercontent.com/51732676/109382708-4fdcd700-7936-11eb-9d14-9092b6528040.png" />
+
+**FIGURE 1.** The number and proportion of Australasian marsupial species in each IUCN Red List category. Species categorised as ‘least concerned’ are in green, ‘near threatened’ in blue, ‘vulnerable’ in yellow, ‘endangered’ in orange and ‘critically endangered’ in pink.
+
+<br />
+
+<img src = "https://user-images.githubusercontent.com/51732676/109382769-c548a780-7936-11eb-99da-82504b55fc7d.png" />
+
+**FIGURE 2.** The increase in the number of articles related to Diprotodontia, Dasyuromorphia, Peramelemorphia, and Notoryctemorphia from 1980 to 2019. Selected indexed keywords were used for the analyses of published articles.
+
+<br />
+
+<img src = "https://user-images.githubusercontent.com/51732676/109383959-f1b3f200-793d-11eb-93ff-8ab5c0b46ce7.png" />
+
+**FIGURE 3.** The increase in the number of articles related to koala-related research and woylie-related research from 1980 to 2019. Selected indexed keywords were used for the analyses of published articles.
+
+<br />
+
+# R package: [specieshindex](https://github.com/jessicatytam/specieshindex)
+
+specieshindex is a package that aims to gauge scientific influence of different species mainly using the h-index. The *h*-index is an impact factor traditionally used for academics. It is now available to rank and compare individual species.
+
+-	Duration: Jun - Aug 2020 (with on-going updates)
+-	Tools used: R (loops, conditionals, tidyverse, devtools), Adobe Photoshop
+-	Supervisors: Shinichi Nakagawa, Malgorzata (Losia) Lagisz, Will Cornwell
+- Grade: 92 WAM
+
+Here is a quick example of how the get the citation records and calculate the indices.
+
+```{r, eval=FALSE}
+library(specieshindex)
+# Extract citation data
+Woylie <- FetchSpTAK("Bettongia", "penicillata", APIkey = API)
+Quokka <- FetchSpTAK("Setonix", "brachyurus", APIkey = API)
+Platypus <- FetchSpTAK("Ornithorhynchus", "anatinus", APIkey = API)
+Koala <- FetchSpTAK("Phascolarctos", "cinereus", APIkey = API)
+# Calculate indices
+W <- Allindices(Woylie, genus = "Bettongia", species = "penicillata")
+Q <- Allindices(Quokka, genus = "Setonix", species = "brachyurus")
+P <- Allindices(Platypus, genus = "Ornithorhynchus", species = "anatinus")
+K <- Allindices(Koala, genus = "Phascolarctos", species = "cinereus")
+CombineSp <- rbind(W, Q, P, K) #combining the citation records
+CombineSp
+```
+<br />
+
+The code here will generate the following dataframe:
+
+genus_species | species | genus | publications | citations | journals | articles | reviews
+--- | --- | --- | --- | --- | --- | --- | ---
+Bettongia_penicillata | penicillata | Bettongia | 113 | 1903 | 55 | 110 | 3
+Setonix_brachyurus | brachyurus | Setonix | 242 | 3427 | 107 | 237 | 5
+Ornithorhynchus_anatinus | anatinus | Ornithorhynchus | 321 | 6365 | 153 | 308 | 13
+Phascolarctos_cinereus | cinereus | Phascolarctos | 773 | 14291 | 227 | 744 | 29
+
+years_publishing | h | m | i10 | h5
+--- | --- | --- | --- | --- 
+26 | 0.591 | 54 | 7 | 44
+29 | 0.433 | 121 | 3 | 67 
+41 | 0.603 | 177 | 7 | 68
+53 | 0.379 | 427 | 13 | 140
+
+<br />
+
+# Biases in research and public interests in mammalian publications
+
+coming in August...
