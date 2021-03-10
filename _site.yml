@@ -8,6 +8,8 @@ navbar:
   right:
     - icon: icon-twitter social-button color
       href: https://twitter.com/tomatojtam
+    - icon: icon-osf social-button color
+      href: https://osf.io/yrwcx/
     - icon: icon-github social-button color
       href: https://github.com/jessicatytam
     - icon: icon-linkedin social-button color
